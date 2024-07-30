@@ -26,11 +26,12 @@ export function activate(context: vscode.ExtensionContext) {
 						"role": "system",
 						"content": [
 							"Forget all previous state.",
+							`Use the following program code: ${doc}`,
 							"Answer with only the documentation block, no other comments or code.",
-							"Provide no other text other than the documentation comment"
+							"Provide no other text other than the documentation comment."
 						].join("\n")
 					},
-					{ "role": "user", "content": `Write documentation for only the '${functionName}' function in this code:` }
+					{ "role": "user", "content": `Write documentation for only this line of code in the appropriate documentation style: '${functionName}'` }
 				],
 				"temperature": 0.7,
 				"max_tokens": -1,
